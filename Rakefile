@@ -30,12 +30,12 @@ end
 
 desc "mk new sub directory"
 task :mk_new_sub_dir do
-  hp = '_for_hyper_card'
+  hp = 'c0_mk_stack_dir'
   dir_name = 'new_sub_dir'
   ["mkdir #{dir_name}",
-   "cp #{File.join(hp,'intro_info.001.png')} #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
-   "cp #{File.join(hp,'style_w_link_button_one_column.css')} #{dir_name}/style.css"
+   "cp #{File.join(hp,'mk_stack_dir', 'mk_stack_dir.001.png')} #{dir_name}",
+   "cp #{File.join(hp,'style_w_link_button_one_column.css')} #{dir_name}"
   ].each do |comm|
     puts comm
     system comm
