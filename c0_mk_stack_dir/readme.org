@@ -1,18 +1,19 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: 卓上スパコン(西谷) / 情報工学概論
+#+TITLE: mk_stack_dir
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style_w_link_button_one_column.css" />
 #+MACRO: dummy_link @@html:<a href="#">$1</a>@@
 
 # for style.css, never move from here
-[[../c0_mk_stack_dir/readme.html][prev_button]]
+[[../c3_linear_algebra_core/readme.html][prev_button]]
 [[../intro_info_26s.html][up_button]]
-[[../c2_solar_system/readme.html][next_button]]
+[[../c1_outline/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
 
-| [[file:intro_info/intro_info.002.png]]
+| [[file:mk_stack_dir/mk_stack_dir.001.png]]
+

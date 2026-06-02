@@ -11,7 +11,7 @@
 # for style.css, never move from here
 [[../c2_solar_system/readme.html][prev_button]]
 [[../intro_info_26s.html][up_button]]
-[[../c1_outline/readme.html][next_button]]
+[[../c0_mk_stack_dir/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
 | [[file:./linear_algebra_core/linear_algebra_core.003.png]] | [[file:./linear_algebra_core/linear_algebra_core.004.png]]
