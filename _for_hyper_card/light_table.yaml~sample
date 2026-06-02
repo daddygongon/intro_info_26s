@@ -1,0 +1,28 @@
+---
+- up:
+  - href: la_core_26s.html
+    title: 
+- id: section-0
+  title: 写像と乳ガン識別器
+  items:
+  - href: c0_mapping/readme.html
+    src: c0_mapping/mapping/mapping.002.png
+    title: 写像
+  - href: c1_four_spaces/readme.html
+    src: c1_four_spaces/four_spaces.003.png
+    title: 4空間
+  - href: c2_breast_cancer/sym_math_breast_cancer/readme.html
+    src: c2_breast_cancer/sym_math_breast_cancer/breast_cancer_detector.002.png
+    title: 乳がん識別器
+- id: section-1
+  title: d2-3 Kepler, Engine
+  items:
+  - href: c3_qr_decomp/readme.html
+    src: c3_qr_decomp/qr_gram_schmidt/qr_gram_schmidt.002.png
+    title: QR分解
+  - href: c4_least_sq_prob/readme.html
+    src: c4_least_sq_prob/least_sq_prob/least_sq_prob.003.png
+    title: 最小二乗法
+  - href: c5_svd_vs_qr/readme.html
+    src: c5_svd_vs_qr/svd_vs_qr/svd_vs_qr.004.png
+    title: 特異値分解(主成分分析)

@@ -1,0 +1,44 @@
+---
+- up:
+  - href: readme_26s.html
+- id: section-0
+  title: d0-1 introduction and Fukushima
+  items:
+  - href: d0_ampm_0407/d0_ampm_0407.html
+    src: d0_ampm_0407/d0_lecture.png
+  - href: d1_Fukushima_0407/d1_fukushima_0407.html
+    src: d1_Fukushima_0407/d1_fukushima.png
+- id: section-1
+  title: d2-3 Kepler, Engine
+  items:
+  - href: d2_Kepler_0414/d2_Kepler_0414.html
+    src: d2_Kepler_0414/d2_Kepler_0414-3.jpg
+  - href: d2_Kepler_0414/d2_Kepler_ex_0421.html
+    src: d2_Kepler_0414/d2_Kepler_0414-4.jpg
+  - href: d3_engine_0421/d3_engine_0421.html
+    src: d3_engine_0421/d3_engine.jpg
+  - href: d3_engine_0421/d3_engine_ex_0428.html
+    src: d3_engine_0421/モデ物_26s-08.jpg
+- id: section-2
+  title: d4-5 Carnot, Boltzmann
+  items:
+  - href: d4_Carnot_0428/d4_carnot_0428.html
+    src: d4_Carnot_0428/モデ物_26s-09.jpg
+  - href: d4_Carnot_0428/d4_carnot_ex_0428.html
+    src: d4_Carnot_0428/モデ物_26s-13.jpg
+  - href: d5_Boltzmann_0512/d5_boltzmann_0512.html
+    src: d5_Boltzmann_0512/モデ物_26s-14.jpg
+  - href: d5_Boltzmann_0512/d5_boltzmann_ex_0519.html
+    src: d5_Boltzmann_0512/モデ物_26s-17.jpg
+- id: section-3
+  title: d6-7 Albedo, Planck, Manabe
+  items:
+  - href: d6_Albedo_0519/d6_Albedo_0519.html
+    src: d6_Albedo_0519/モデ物_26s-18.jpg
+  - href: d6_Albedo_0519/d6_Albedo_ex_0519.html
+    src: d6_Albedo_0519/モデ物_26s-20.jpg
+  - href: d7_Planck_Manabe/readme.html
+    src: d7_Planck_Manabe/d7_2.jpg
+    title: d7_Planck_Manabe
+
+    
