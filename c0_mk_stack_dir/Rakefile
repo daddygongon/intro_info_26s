@@ -9,7 +9,9 @@ begin
 rescue Errno::ENOENT
   config = {year: 2025,
 lecture: "math_ex_ala",
-source_html: "math_ex_ala_26s.html"}
+source_html: "math_ex_ala_26s.html",
+glob_extensions: "c*/*.html"
+           }
 
   File.write(".hc_config.yaml",YAML.dump(config))
   puts "edit .hc_config.yaml"
@@ -21,6 +23,7 @@ $lecture = config[:lecture] #'math_ex_ala'
 $source_html = config[:source_html]
 $local_dir = File.join('~/Sites/new_ist/Lectures',$year)
 $lec_dir = File.expand_path(File.join($local_dir,$lecture))
+$glob_extensions = config[:glob_extensions].to_s
 
 task :default do
   p ['$lec_dir', $lec_dir]
@@ -30,12 +33,14 @@ end
 
 desc "mk new sub directory"
 task :mk_new_sub_dir do
-  hp = 'c0_mk_stack_dir'
+  stack_dir = '_mk_stack_dir'
   dir_name = 'new_sub_dir'
   ["mkdir #{dir_name}",
-   "cp #{File.join(hp,'readme.org')} #{dir_name}",
-   "cp #{File.join(hp,'mk_stack_dir', 'mk_stack_dir.001.png')} #{dir_name}",
-   "cp #{File.join(hp,'style_w_link_button_one_column.css')} #{dir_name}"
+   "cp #{File.join(stack_dir,'theme.css')} .",
+   "cp #{File.join(stack_dir,'style_top_link.css')} ./style.css",
+   "cp #{File.join(stack_dir,'readme.org')} #{dir_name}",
+   "cp #{File.join(stack_dir,'mk_stack_dir', 'mk_stack_dir.001.png')} #{dir_name}",
+   "cp #{File.join(stack_dir,'style_w_link_button_one_column.css')} #{dir_name}"
   ].each do |comm|
     puts comm
     system comm
@@ -43,29 +48,33 @@ task :mk_new_sub_dir do
 end
 
 desc "DIR : make DIR light table" #desc -> description
-task :mk_light_table => :show_dirs do # any name on task_name
-  comm = "ruby c0_mk_stack_dir/auto_mk_light_table.rb"
+task :mk_light_table do # any name on task_name
+  comm = "ruby _mk_stack_dir/auto_mk_light_table.rb"
   puts comm
   puts "\nFor making light table structured, modify light_table.yaml.".green
   exit
 end
 
-desc "show necessary dirs for display light table DIR public." #desc -> description
-task :show_dirs do # any name on task_name
-  puts "Setup following dirs:".blue
-  puts "#{$lec_dir}".blue
-  puts "#{$ist_dir}".blue
-  puts ""
+desc "auto generate top.html from light_table.yaml" #desc -> description
+task :generate_html do # any name on task_name
+  comm = "ruby _mk_stack_dir/generate_html.rb"
+  puts comm
+  puts "\nAfter light_table.yaml, auto generate ./#{$source_html}".green
+  exit
 end
 
 desc "commit local dir" #desc -> description
-task :commit => :show_dirs do # any name on task_name
+task :commit do # any name on task_name
   system "mkdir #{$lec_dir}"
-  Dir.glob("c*").each do |s_dir|
-    p s_dir
+  Dir.glob($glob_extensions.split('/').first).each do |s_dir|
+    p s_dir 
     next unless File.directory?(s_dir)
-   # comm = "cp -rf #{s_dir} #{$lec_dir}"
-    comm = "rsync -av --exclude=\".*\" #{s_dir} #{$lec_dir}"
+    
+    # 除外したいディレクトリのリスト
+    excludes = %w[.venv/ venv/ env/ .env/ __pycache__/ .git/]
+    exclude_opts = excludes.map { |e| "--exclude=\"#{e}\"" }.join(" ")
+    
+    comm = "rsync -av #{exclude_opts} #{s_dir} #{$lec_dir}"
     p comm
     system comm
   end
@@ -80,13 +89,13 @@ task :commit => :show_dirs do # any name on task_name
 end
 
 desc "push light tables to web server"
-task :push => :show_dirs do
-  $ist_dir = File.join("nishitani@ist.ksc.kwansei.ac.jp:~/public_html/Lectures",
-                       $year)
-  $https_dir = File.join("https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
+task :push do
+  ist_dir = File.join("nishitani@ist.ksc.kwansei.ac.jp:~/public_html/Lectures/",
+                         $year)
+  https_file = File.join("https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
                          $year, $lecture, $source_html)
-  ["rsync --exclude=\".*\" -auvz -e ssh ~/Sites/new_ist/ nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
-   "open #{$https_dir}"].each do |comm|
+  ["rsync -F -auvz -e ssh #{$lec_dir} #{ist_dir}",
+   "open #{https_file}"].each do |comm|
     puts comm
     system comm
   end

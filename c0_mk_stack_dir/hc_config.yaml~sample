@@ -1,4 +1,4 @@
----
 :year: 2026
-:lecture: model_phys
-:source_html: readme_26s.html
+:lecture: intro_info
+:source_html: intro_info_26s.html
+:glob_extensions: "c*/*.html"

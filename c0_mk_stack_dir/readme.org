@@ -15,5 +15,5 @@
 # for a real link rewrite usual [[\url][]]
 
 
-| [[file:mk_stack_dir/mk_stack_dir.001.png]]
+| [[file:./mk_stack_dir.001.png]]
 
