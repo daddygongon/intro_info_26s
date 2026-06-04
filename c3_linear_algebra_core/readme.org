@@ -14,4 +14,10 @@
 [[../c0_mk_stack_dir/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
-| [[file:./linear_algebra_core/linear_algebra_core.003.png]] | [[file:./linear_algebra_core/linear_algebra_core.004.png]]
+* 写像(Mapping)
+
+| [[file:./linear_algebra_core/linear_algebra_core.003.png]]       |
+| 行列の４空間：線形代数のロケットスタート(by Gilbert Strang). |
+
+* CPA vs QR
+ [[file:./linear_algebra_core/linear_algebra_core.004.png]]

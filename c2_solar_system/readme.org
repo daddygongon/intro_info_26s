@@ -5,7 +5,7 @@
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style_w_link_button_one_column.css" />
 #+MACRO: dummy_link @@html:<a href="#">$1</a>@@
 
 # for style.css, never move from here
