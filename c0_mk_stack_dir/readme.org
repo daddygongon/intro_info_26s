@@ -14,6 +14,12 @@
 [[../c1_outline/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
+* name
+Hyper Card Stacksの作成を補助するシステム
+| [[file:./mk_stack_dir/mk_stack_dir.001.png]]
 
-| [[file:./mk_stack_dir.001.png]]
+* install
+#+begin_src bash
 
+#+end_src
+* how to build html

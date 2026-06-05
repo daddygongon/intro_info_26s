@@ -21,3 +21,8 @@
 
 * CPA vs QR
  [[file:./linear_algebra_core/linear_algebra_core.004.png]]
+
+* stack links
+- [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/linear_algebra_core/c5_svd_vs_qr/readme.html][la_core/svd_vs_qr(symlink)]]
+- [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/linear_algebra_core/cx_draw_four_spaces/readme.html][la_core/four_spaces(symlink)]]
+- [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/math_ex_ala/math_ex_ala_26s.html][math_ex_appl(symlink)]]

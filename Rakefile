@@ -21,6 +21,7 @@ $lecture = config[:lecture] #'math_ex_ala'
 $source_html = config[:source_html]
 $local_dir = File.join('~/Sites/new_ist/Lectures',$year)
 $lec_dir = File.expand_path(File.join($local_dir,$lecture))
+$glob_extensions = config[:glob_extensions].to_s
 
 task :default do
   p ['$lec_dir', $lec_dir]
@@ -31,14 +32,14 @@ end
 desc "show files for markup list"
 task :ls do
   Dir.chdir(Rake.application.original_dir) do
-    Dir.glob("*").each do |file|
+    Dir.glob("./*").each do |file|
       if File.symlink?(file)
         symlink_path = File.readlink(file)
         puts "- [[#{symlink_path}][#{file}]](symlink)"
       elsif File.directory?(file)
         next
       else
-        puts "- [[file:./#{file}][./#{file}]]"
+        puts "- [[file:#{file}][#{file}]]"
       end
     end
   end
@@ -46,12 +47,12 @@ end
 
 desc "mk new sub directory"
 task :mk_new_sub_dir do
-  hp = 'c0_mk_stack_dir'
+  hp = File.join('c0_mk_stack_dir','templates')
   dir_name = 'new_sub_dir'
   ["mkdir #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
-   "cp #{File.join(hp,'mk_stack_dir', 'mk_stack_dir.001.png')} #{dir_name}",
-   "cp #{File.join(hp,'style_w_link_button_one_column.css')} #{dir_name}"
+   "cp #{File.join(hp,'mk_stack_dir.001.png')} #{dir_name}",
+   "cp #{File.join(hp,'style_w_link_button.css')} #{dir_name}"
   ].each do |comm|
     puts comm
     system comm
@@ -77,7 +78,7 @@ end
 desc "commit local dir" #desc -> description
 task :commit => :show_dirs do # any name on task_name
   system "mkdir #{$lec_dir}"
-  Dir.glob("c*").each do |s_dir|
+  Dir.glob($glob_extensions.split('/').first).each do |s_dir|
     p s_dir
     next unless File.directory?(s_dir)
    # comm = "cp -rf #{s_dir} #{$lec_dir}"
