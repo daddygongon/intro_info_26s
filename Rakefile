@@ -28,6 +28,22 @@ task :default do
   system "rake -T"
 end
 
+desc "show files for markup list"
+task :ls do
+  Dir.chdir(Rake.application.original_dir) do
+    Dir.glob("*").each do |file|
+      if File.symlink?(file)
+        symlink_path = File.readlink(file)
+        puts "- [[#{symlink_path}][#{file}]](symlink)"
+      elsif File.directory?(file)
+        next
+      else
+        puts "- [[file:./#{file}][./#{file}]]"
+      end
+    end
+  end
+end
+
 desc "mk new sub directory"
 task :mk_new_sub_dir do
   hp = 'c0_mk_stack_dir'

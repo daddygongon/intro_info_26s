@@ -30,4 +30,10 @@
 | 天王星 |         84.01 |          19.191 |      1.000 |           |
 | 海王星 |         164.8 |           30.07 |      1.000 |           |
 
+* file links
+- [[file:./SolarSystem.mw][./SolarSystem.mw]]
+- [[file:./d1_python_ode.ipynb][./d1_python_ode.ipynb]]
+- [[file:./d1_python_ode.pdf][./d1_python_ode.pdf]]
+- [[file:./kepler_harmonic.key][./kepler_harmonic.key]]
+- [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/model_phys/d2_Kepler_0414/d2_Kepler_0414.html][model_phys]](symlink)
 
