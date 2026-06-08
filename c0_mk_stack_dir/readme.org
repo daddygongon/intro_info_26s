@@ -16,7 +16,7 @@
 
 * name
 Hyper Card Stacksの作成を補助するシステム
-| [[file:./mk_stack_dir/mk_stack_dir.001.png]]
+| [[file:./mk_stack_dir/mk_stack_dir.002.png]]
 
 * install
 #+begin_src bash
