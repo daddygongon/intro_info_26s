@@ -6,11 +6,11 @@
   :title: 知識の構造
   :items:
   - :href: c0_mk_stack_dir/readme.html
-    :src: c0_mk_stack_dir/mk_stack_dir/mk_stack_dir.001.png
+    :src: c0_mk_stack_dir/mk_stack_dir/mk_stack_dir.002.png
     :title: mk_stack_dir
   - :href: c1_outline/readme.html
-    :src: c1_outline/intro_info/intro_info.002.png
-    :title: LLM, GFlop/s
+    :src: c1_outline/GoodNote_26s-11.jpg
+    :title: Desktop Super computer, ChatGPT
 - :id: section-1
   :title: イメージ
   :items:

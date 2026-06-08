@@ -14,5 +14,15 @@
 [[../c2_solar_system/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
+* outline
+| [[file:./GoodNote_26s-11.jpg]]
 
-| [[file:intro_info/intro_info.002.png]]
+* 課題とGFlop/s計算資料
+** 課題
+1. 玉の自由落下と雨粒の空気抵抗落下のグラフを手書きし，特徴を記せ．
+1. 私のMacBook AirのCPU性能は何GFlop/sか？　計算過程も記せ．
+1. 卓上スパコンで何をするか，夢を語れ．
+** GFlop/s計算資料
+| [[file:./intro_info/intro_info.003.png]]
+* 課題提出用紙
+- [[file:./quiz_sheet.pages.pdf]]
