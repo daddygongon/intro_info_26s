@@ -46,12 +46,12 @@ task :ls do
 end
 
 desc "mk new sub directory"
-task :mk_new_sub_dir do
+task :mkdir do
   hp = File.join('c0_mk_stack_dir','templates')
-  dir_name = 'new_sub_dir'
+  dir_name = ARGV[1] || 'new_sub_dir'
   ["mkdir #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
-   "cp #{File.join(hp,'mk_stack_dir.001.png')} #{dir_name}",
+   "cp #{File.join(hp,'dummy_icon.png')} #{dir_name}",
    "cp #{File.join(hp,'style_w_link_button.css')} #{dir_name}"
   ].each do |comm|
     puts comm

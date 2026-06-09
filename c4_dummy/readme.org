@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: mk_stack_dir
+#+TITLE: c4_dummy
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp

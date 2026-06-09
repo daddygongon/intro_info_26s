@@ -255,15 +255,3 @@ h3 {
         max-width: 100% !important; /* スマホ表示時は幅いっぱいに広げる */
     }
 }
-
-@media (prefers-color-scheme: dark) {
-  pre {
-    background-color: #1e1e1e; /* ダークモード用の背景色 */
-    border: 1px solid #333333; /* ダークモード用の枠線 */
-    color: #d4d4d4;            /* ダークモード用の文字色 */
-  }
-  pre.src:before {
-    color: #aaaaaa;
-    background-color: #1e1e1e99;
-  }
-}

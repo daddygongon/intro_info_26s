@@ -20,7 +20,7 @@ Hyper Card Stacksの作成を補助するシステム
 
 * install
 #+begin_src bash
-git clone https://github.com/daddygongon/intro_info_26s
+> git clone https://github.com/daddygongon/intro_info_26s
 #+end_src
 * how to build html
 | [[file:./mk_stack_dir/mk_stack_dir.003.png]] | [[file:./mk_stack_dir/mk_stack_dir.004.png]] | [[file:./mk_stack_dir/mk_stack_dir.005.png]]

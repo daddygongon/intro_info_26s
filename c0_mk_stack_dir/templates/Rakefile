@@ -29,17 +29,6 @@ task :default do
   system "rake -T"
 end
 
-desc "kick off stacks"
-task :init do
-  ["cp c0_mk_stack_dir/templates/light_table.yaml~sample light_table.yaml",
-   "cp c0_mk_stack_dir/templates/theme.css .",
-   "cp c0_mk_stack_dir/templates/style_top_link.css ./style.css",
-  ].each do |comm|
-    puts comm
-    system comm
-  end
-end
-
 desc "show files for markup list"
 task :ls do
   Dir.chdir(Rake.application.original_dir) do
@@ -57,12 +46,12 @@ task :ls do
 end
 
 desc "mk new sub directory"
-task :mk_new_sub_dir do
+task :mkdir do
   hp = File.join('c0_mk_stack_dir','templates')
-  dir_name = 'new_sub_dir'
+  dir_name = ARGV[1] || 'new_sub_dir'
   ["mkdir #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
-   "cp #{File.join(hp,'mk_stack_dir.001.png')} #{dir_name}",
+   "cp #{File.join(hp,'dummy_icon.png')} #{dir_name}",
    "cp #{File.join(hp,'style_w_link_button.css')} #{dir_name}"
   ].each do |comm|
     puts comm
@@ -92,11 +81,8 @@ task :commit => :show_dirs do # any name on task_name
   Dir.glob($glob_extensions.split('/').first).each do |s_dir|
     p s_dir
     next unless File.directory?(s_dir)
-    # 除外したいディレクトリのリスト
-    excludes = %w[.venv/ venv/ env/ .env/ __pycache__/ .git/]
-    exclude_opts = excludes.map { |e| "--exclude=\"#{e}\"" }.join(" ")
-    
-    comm = "rsync -av #{exclude_opts} #{s_dir} #{$lec_dir}"
+   # comm = "cp -rf #{s_dir} #{$lec_dir}"
+    comm = "rsync -av --exclude=\".*\" #{s_dir} #{$lec_dir}"
     p comm
     system comm
   end
