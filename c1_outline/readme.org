@@ -25,4 +25,5 @@
 ** GFlop/s計算資料
 | [[file:./intro_info/intro_info.003.png]]
 * 課題提出用紙
-- [[file:./quiz_sheet.pages.pdf]]
+- [[file:./intro_info_26s_handout_v0.pdf]]
+
