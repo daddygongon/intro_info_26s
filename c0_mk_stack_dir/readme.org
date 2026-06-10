@@ -24,3 +24,6 @@ Hyper Card Stacksの作成を補助するシステム
 #+end_src
 * how to build html
 | [[file:./mk_stack_dir/mk_stack_dir.003.png]] | [[file:./mk_stack_dir/mk_stack_dir.004.png]] | [[file:./mk_stack_dir/mk_stack_dir.005.png]]
+
+* link
+- [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/intro_info/c0_mk_stack_dir/c2_semi_lattice/readme.html][semi_lattice]]
