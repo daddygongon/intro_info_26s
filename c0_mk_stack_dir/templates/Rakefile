@@ -9,7 +9,9 @@ begin
 rescue Errno::ENOENT
   config = {year: 2025,
 lecture: "math_ex_ala",
-source_html: "math_ex_ala_26s.html"}
+source_html: "math_ex_ala_26s.html",
+glob_extensions: "c*/*.html"
+           }
 
   File.write(".hc_config.yaml",YAML.dump(config))
   puts "edit .hc_config.yaml"

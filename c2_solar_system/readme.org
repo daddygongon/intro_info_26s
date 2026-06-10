@@ -15,9 +15,9 @@
 # for a real link rewrite usual [[\url][]]
 
 * ケプラーの法則のイメージ(重力場)
-| [[file:./kepler_harmonic/kepler_harmonic.002.png]]
+| [[file:./Kepler_Harmonices_Mundi/Kepler_Harmonices_Mundi.003.png]]
 
-* 調和の法則(Kepler's third law: Harmonies)
+* 調和の法則(Kepler's third law: Law of Harmonies)
 
 | 惑星   | 公転周期($T$) | 軌道長半径($r$) |  $T^2/r^3$ | $T^2/r^3$ |
 |        |               |                 | by Copilot | by you    |
@@ -34,6 +34,7 @@
 - [[file:./SolarSystem.mw][./SolarSystem.mw]]
 - [[file:./d1_python_ode.ipynb][./d1_python_ode.ipynb]]
 - [[file:./d1_python_ode.pdf][./d1_python_ode.pdf]]
-- [[file:./kepler_harmonic.key][./kepler_harmonic.key]]
+- [[file:./kepler_harmonic.key][./Kepler_Harmonices_Mundi.key]]
 - [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/model_phys/d2_Kepler_0414/d2_Kepler_0414.html][model_phys]](symlink)
 
+  
