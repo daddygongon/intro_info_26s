@@ -14,6 +14,8 @@
 [[../c1_outline/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
+* image
+| [[file:semi_lattice.004.png]]
 
-| [[file:./dummy_icon.png]]
-
+* link
+- [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][知識の構造(ツリーではない) on qiita]]
