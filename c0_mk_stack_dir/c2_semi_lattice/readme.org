@@ -15,7 +15,9 @@
 # for a real link rewrite usual [[\url][]]
 
 * image
-| [[file:semi_lattice.004.png]]
+| [[file:./semi_lattice/semi_lattice.003.png]]
+| [[file:./semi_lattice/semi_lattice.002.png]]
+| [[file:./semi_lattice/semi_lattice.004.png]]
 
 * link
 - [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][知識の構造(ツリーではない) on qiita]]

@@ -15,7 +15,8 @@
 # for a real link rewrite usual [[\url][]]
 
 * ケプラーの法則のイメージ(重力場)
-| [[file:./Kepler_Harmonices_Mundi/Kepler_Harmonices_Mundi.003.png]]
+| [[file:./Kepler_Harmonices_Mundi.002.png]]                       |
+
 
 * 調和の法則(Kepler's third law: Law of Harmonies)
 

@@ -20,10 +20,11 @@
 * 課題とGFlop/s計算資料
 ** 課題
 1. 玉の自由落下と雨粒の空気抵抗落下のグラフを手書きし，特徴を記せ．
-1. 私のMacBook AirのCPU性能は何GFlop/sか？　計算過程も記せ．
+1. 私のMacBook AirのCPU性能は何GFLOPSか？計算過程も記せ．
 1. 卓上スパコンで何をするか，夢を語れ．
-** GFlop/s計算資料
-| [[file:./intro_info/intro_info.003.png]]
+** GFLOPS計算資料
+| [[file:./intro_info.002.png]]   |
+
 * 課題提出用紙
-- [[file:./intro_info_26s_handout_v0.pdf]]
+- [[file:./intro_info_26s_handout_v1.pdf]]
 
