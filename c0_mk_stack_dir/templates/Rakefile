@@ -7,9 +7,14 @@ begin
   config = YAML.load(File.read(".hc_config.yaml"))
   p ['config', config]
 rescue Errno::ENOENT
-  config = {year: 2025,
-lecture: "math_ex_ala",
-source_html: "math_ex_ala_26s.html"}
+  config = {year: 2026,
+            lecture: "intro_info",
+            source_html: "intro_info_26s.html",
+            local_sites: "~/Sites/new_ist/Lectures",
+            ruby_code_dir: "c0_mk_stack_dir",
+            server_ssh_path: "nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
+            server_url: "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
+            glob_extensions: "c*/*.html"}
 
   File.write(".hc_config.yaml",YAML.dump(config))
   puts "edit .hc_config.yaml"
@@ -17,11 +22,17 @@ source_html: "math_ex_ala_26s.html"}
 end
 
 $year = config[:year].to_s
-$lecture = config[:lecture] #'math_ex_ala'
+$lecture = config[:lecture] ||'intro_info'
 $source_html = config[:source_html]
-$local_dir = File.join('~/Sites/new_ist/Lectures',$year)
+
+$local_sites = config[:local_sites] || "~/Sites/new_ist/Lectures"
+$ruby_code_dir = config[:ruby_code_dir] || "c0_mk_stack_dir"
+$server_ssh_path = config[:server_ssh_path] || "nishitani@ist.ksc.kwansei.ac.jp:~/public_html"
+$server_url = config[:server_url] || "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures"
+
+$local_dir = File.join($local_sites, $year)
 $lec_dir = File.expand_path(File.join($local_dir,$lecture))
-$glob_extensions = config[:glob_extensions].to_s
+$glob_extensions = config[:glob_extensions] || "c*/*.html"
 
 task :default do
   p ['$lec_dir', $lec_dir]
@@ -47,7 +58,7 @@ end
 
 desc "mk new sub directory"
 task :mkdir do
-  hp = File.join('c0_mk_stack_dir','templates')
+  hp = File.join($ruby_code_dir, 'templates')
   dir_name = ARGV[1] || 'new_sub_dir'
   ["mkdir #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
@@ -61,7 +72,7 @@ end
 
 desc "DIR : make DIR light table" #desc -> description
 task :mk_light_table => :show_dirs do # any name on task_name
-  comm = "ruby c0_mk_stack_dir/auto_mk_light_table.rb"
+  comm = "ruby #{File.join($ruby_code_dir, 'auto_mk_light_table.rb')}"
   puts comm
   puts "\nFor making light table structured, modify light_table.yaml.".green
   exit
@@ -87,14 +98,14 @@ task :commit => :show_dirs do # any name on task_name
     next unless File.directory?(s_dir)
    # comm = "cp -rf #{s_dir} #{$lec_dir}"
     comm = "rsync -av #{exclude_opts} #{s_dir} #{$lec_dir}"
-    p comm
+    puts comm.blue
     system comm
   end
   ["cp #{$source_html} #{$lec_dir}",
    "cp style.css theme.css #{$lec_dir}",
    "chmod -R a+r #{$lec_dir}"
   ].each do |comm|
-    p comm
+    puts comm.blue
     system comm
   end
   exit
@@ -102,21 +113,20 @@ end
 
 desc "push light tables to web server"
 task :push => :show_dirs do
-  $ist_dir = File.join("nishitani@ist.ksc.kwansei.ac.jp:~/public_html/Lectures",
-                       $year)
-  $https_dir = File.join("https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
+  https_dir = File.join($server_url,
                          $year, $lecture, $source_html)
-  ["rsync -F -auvz -e ssh ~/Sites/new_ist/ nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
-   "open #{$https_dir}"].each do |comm|
-    puts comm
+  local_base_dir = File.join($local_sites, $year)
+  ["rsync -F -auvz -e ssh #{local_base_dir} #{$server_ssh_path}/Lectures",
+   "open #{https_dir}"].each do |comm|
+    puts comm.blue
     system comm
   end
 end
 
 desc "mk link from ligh_table.yaml"
 task :mk_link do
-  comm = "ruby c0_mk_stack_dir/mk_link.rb"
-  puts comm
+  comm = "ruby #{File.join($ruby_code_dir, 'mk_link.rb')}"
+  puts comm.blue
   puts "\nFor making links for up, prev, next buttons from light_table.yaml.".green
   exit
   

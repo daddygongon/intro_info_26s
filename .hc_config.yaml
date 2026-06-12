@@ -1,4 +1,9 @@
+---
 :year: 2026
 :lecture: intro_info
 :source_html: intro_info_26s.html
-:glob_extensions: "c*/*.html"
+:local_sites: "~/Sites/new_ist/Lectures"
+:ruby_code_dir: c0_mk_stack_dir
+:server_ssh_path: nishitani@ist.ksc.kwansei.ac.jp:~/public_html
+:server_url: https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures
+:glob_extensions: c*/*.html
