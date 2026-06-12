@@ -8,13 +8,14 @@ begin
   p ['config', config]
 rescue Errno::ENOENT
   config = {year: 2026,
-            lecture: "intro_info",
-            source_html: "intro_info_26s.html",
-            local_sites: "~/Sites/new_ist/Lectures",
-            ruby_code_dir: "c0_mk_stack_dir",
-            server_ssh_path: "nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
-            server_url: "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
-            glob_extensions: "c*/*.html"}
+ lecture: "intro_info",
+ source_html: "intro_info_26s.html",
+ glob_extensions: "c*/*.html",
+ server_info:
+  {local_sites: "~/Sites/new_ist/Lectures",
+   ruby_code_dir: "c0_mk_stack_dir",
+   server_ssh_path: "nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
+   server_url: "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures"}}
 
   File.write(".hc_config.yaml",YAML.dump(config))
   puts "edit .hc_config.yaml"
@@ -25,10 +26,11 @@ $year = config[:year].to_s
 $lecture = config[:lecture] ||'intro_info'
 $source_html = config[:source_html]
 
-$local_sites = config[:local_sites] || "~/Sites/new_ist/Lectures"
-$ruby_code_dir = config[:ruby_code_dir] || "c0_mk_stack_dir"
-$server_ssh_path = config[:server_ssh_path] || "nishitani@ist.ksc.kwansei.ac.jp:~/public_html"
-$server_url = config[:server_url] || "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures"
+server_info = config[:server_info] || {}
+$local_sites = server_info[:local_sites] || "~/Sites/new_ist/Lectures"
+$ruby_code_dir = server_info[:ruby_code_dir] || "c0_mk_stack_dir"
+$server_ssh_path = server_info[:server_ssh_path] || "nishitani@ist.ksc.kwansei.ac.jp:~/public_html"
+$server_url = server_info[:server_url] || "https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures"
 
 $local_dir = File.join($local_sites, $year)
 $lec_dir = File.expand_path(File.join($local_dir,$lecture))
