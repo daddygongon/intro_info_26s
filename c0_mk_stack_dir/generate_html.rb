@@ -4,14 +4,23 @@ require 'erb'
 def render_items(items)
   items.map do |item|
     display_title = item[:title] || File.basename(item[:href], '.*')
+    img_src = item[:src] || 'c0_mk_stack_dir/templates/dummy_icon.png'
+    
+    img_tag = if File.exist?(img_src)
+      <<-IMG
+          <img src="#{img_src}" 
+            alt="#{File.basename(img_src)}" 
+            loading="lazy" 
+            style="width: 100%; height: auto; display: block; margin-bottom: 8px;">
+      IMG
+    else
+      ""
+    end
+
     <<-HTML
       <td style="padding: 5px; vertical-align: top; width: 33.33%;">
         <a href="#{item[:href]}" target="_blank" style="text-decoration: none; color: inherit;">
-          <img src="#{item[:src]}" 
-            alt="#{File.basename(item[:src])}" 
-            loading="lazy" 
-            style="width: 100%; height: auto; display: block; margin-bottom: 8px;">
-          <span style="display: block; text-align: center; font-size: 0.9em; word-break: break-all;">#{display_title}</span>
+#{img_tag}          <span style="display: block; text-align: center; font-size: 0.9em; word-break: break-all;">#{display_title}</span>
         </a>
       </td>
     HTML

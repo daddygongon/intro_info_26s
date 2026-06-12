@@ -67,7 +67,7 @@ task :mk_light_table => :show_dirs do # any name on task_name
   exit
 end
 
-desc "show necessary dirs for display light table DIR public." #desc -> description
+desc "show dirs for display light table DIR public." #desc -> description
 task :show_dirs do # any name on task_name
   puts "Setup following dirs:".blue
   puts "#{$lec_dir}".blue
@@ -78,11 +78,15 @@ end
 desc "commit local dir" #desc -> description
 task :commit => :show_dirs do # any name on task_name
   system "mkdir #{$lec_dir}"
+  
+  excludes = %w[.venv/ venv/ env/ .env/ __pycache__/ .git/]
+  exclude_opts = excludes.map { |e| "--exclude=\"#{e}\"" }.join(" ")
+
   Dir.glob($glob_extensions.split('/').first).each do |s_dir|
     p s_dir
     next unless File.directory?(s_dir)
    # comm = "cp -rf #{s_dir} #{$lec_dir}"
-    comm = "rsync -av --exclude=\".*\" #{s_dir} #{$lec_dir}"
+    comm = "rsync -av #{exclude_opts} #{s_dir} #{$lec_dir}"
     p comm
     system comm
   end
@@ -102,7 +106,7 @@ task :push => :show_dirs do
                        $year)
   $https_dir = File.join("https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures",
                          $year, $lecture, $source_html)
-  ["rsync --exclude=\".*\" -auvz -e ssh ~/Sites/new_ist/ nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
+  ["rsync -F -auvz -e ssh ~/Sites/new_ist/ nishitani@ist.ksc.kwansei.ac.jp:~/public_html",
    "open #{$https_dir}"].each do |comm|
     puts comm
     system comm

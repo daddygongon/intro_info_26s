@@ -80,3 +80,12 @@
     --radius: 0.5rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #8ab4f8;
+  }
+  a:visited {
+    color: #c58af9;
+  }
+}
