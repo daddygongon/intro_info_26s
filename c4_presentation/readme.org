@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: mk_stack_dir
+#+TITLE: 板書，動画置き場リンク
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
@@ -9,11 +9,19 @@
 #+MACRO: dummy_link @@html:<a href="#">$1</a>@@
 
 # for style.css, never move from here
-[[../c3_linear_algebra_core/readme.html][prev_button]]
+[[../c1_outline/readme.html][prev_button]]
 [[../intro_info_26s.html][up_button]]
-[[../c1_outline/readme.html][next_button]]
+[[../c2_solar_system/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
 
+* 板書
+** 6/15
+| [[file:./goodnotes/情報概論_26s-12.jpg]]
+** 6/16
+| [[file:./goodnotes/情報概論_26s-16.jpg]]
 
-| [[file:./dummy_icon.png]]
+
+
+* link
+- [[https://kwanseio365-my.sharepoint.com/:f:/g/personal/cru32369_nuc_kwansei_ac_jp/IgA3TLpuub3uRqPAJ2cfi-6LAXFojn7DWprL2oDFVziiNYA?e=yXXCoZ][講義動画置き場]]
 

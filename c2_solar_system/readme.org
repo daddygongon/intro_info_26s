@@ -9,7 +9,7 @@
 #+MACRO: dummy_link @@html:<a href="#">$1</a>@@
 
 # for style.css, never move from here
-[[../c1_outline/readme.html][prev_button]]
+[[../c4_presentation/readme.html][prev_button]]
 [[../intro_info_26s.html][up_button]]
 [[../c3_linear_algebra_core/readme.html][next_button]]
 # for a real link rewrite usual [[\url][]]
@@ -33,8 +33,8 @@
 
 * file links
 - [[file:./SolarSystem.mw][./SolarSystem.mw]]
-- [[file:./d1_python_ode.ipynb][./d1_python_ode.ipynb]]
-- [[file:./d1_python_ode.pdf][./d1_python_ode.pdf]]
+- [[file:_stack_1st_260618/d1_python_ode.ipynb]]
+- [[file:_stack_1st_260618/d1_python_ode.pdf]]
 - [[file:./kepler_harmonic.key][./Kepler_Harmonices_Mundi.key]]
 - [[https://ist.ksc.kwansei.ac.jp/~nishitani/Lectures/2026/model_phys/d2_Kepler_0414/d2_Kepler_0414.html][model_phys]](symlink)
 
