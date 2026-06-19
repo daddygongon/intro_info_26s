@@ -113,7 +113,7 @@ task :commit => :show_dirs do # any name on task_name
     p s_dir
     next unless File.directory?(s_dir)
    # comm = "cp -rf #{s_dir} #{$lec_dir}"
-    comm = "rsync -av #{exclude_opts} #{s_dir} #{$lec_dir}"
+    comm = "rsync -av --no-links #{exclude_opts} #{s_dir} #{$lec_dir}"
     puts comm.blue
     system comm
   end
@@ -132,7 +132,7 @@ task :push => :show_dirs do
   https_dir = File.join($server_url,
                          $year, $lecture, $source_html)
   local_base_dir = File.join($local_sites, $year)
-  ["rsync -F -auvz -e ssh #{local_base_dir} #{$server_ssh_path}/Lectures",
+  ["rsync -F -auvz --no-links -e ssh #{local_base_dir} #{$server_ssh_path}/Lectures",
    "open #{https_dir}"].each do |comm|
     puts comm.blue
     system comm
