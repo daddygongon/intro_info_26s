@@ -79,7 +79,8 @@ task :mkdir do
   ["mkdir #{dir_name}",
    "cp #{File.join(hp,'readme.org')} #{dir_name}",
    "cp #{File.join(hp,'dummy_icon.png')} #{dir_name}",
-   "cp #{File.join(hp,'style_w_link_button.css')} #{dir_name}"
+   "cp #{File.join(hp,'style_w_link_button.css')} #{dir_name}",
+   "cp #{File.join(hp,'rsync_filter~sample')} #{File.join(dir_name, '.rsync_filter')}"
   ].each do |comm|
     puts comm
     system comm
@@ -112,8 +113,16 @@ task :commit => :show_dirs do # any name on task_name
   Dir.glob($glob_extensions.split('/').first).each do |s_dir|
     p s_dir
     next unless File.directory?(s_dir)
-   # comm = "cp -rf #{s_dir} #{$lec_dir}"
-    comm = "rsync -av --no-links #{exclude_opts} #{s_dir} #{$lec_dir}"
+
+    rsync_filter_file = File.join(s_dir, ".rsync_filter")
+    
+    command_parts = ['rsync', '-av', '--no-links']
+    command_parts << "--filter=\"merge #{rsync_filter_file}\"" if File.exist?(rsync_filter_file)
+    command_parts << exclude_opts
+    command_parts << s_dir
+    command_parts << $lec_dir
+
+    comm = command_parts.join(' ')
     puts comm.blue
     system comm
   end
@@ -136,6 +145,40 @@ task :push => :show_dirs do
    "open #{https_dir}"].each do |comm|
     puts comm.blue
     system comm
+  end
+end
+
+desc "create symlink and record it. usage: rake ln_s [source_dir]"
+task :ln_s do
+  source_dir = ARGV[1]
+  unless source_dir && File.directory?(source_dir)
+    puts "Usage: rake ln_s [source_dir]".red
+    puts "Error: Source directory not provided or does not exist.".red
+    exit
+  end
+
+  link_name = File.basename(source_dir)
+  cwd = Dir.pwd
+  
+  # 1. Create symbolic link
+  if File.exist?(link_name) || File.symlink?(link_name)
+    puts "Link '#{link_name}' already exists in #{cwd}".yellow
+  else
+    comm = "ln -s #{source_dir} #{link_name}"
+    puts comm.blue
+    system comm
+  end
+
+  # 2. Update .linked.yaml in source directory
+  linked_file = File.join(source_dir, '.linked.yaml')
+  linked_paths = File.exist?(linked_file) ? YAML.load_file(linked_file) : []
+  
+  unless linked_paths.include?(cwd)
+    linked_paths << cwd
+    File.write(linked_file, YAML.dump(linked_paths))
+    puts "Updated #{linked_file}".green
+  else
+    puts "#{cwd} already recorded in #{linked_file}".yellow
   end
 end
 
